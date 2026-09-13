@@ -28,6 +28,7 @@ const featuredClients: TooltipItem[] = [
     name: "KCS Network",
     designation: "Client",
     image: "/clients/kcs-network.jpg",
+    href: "https://www.instagram.com/kcsnetwork/",
   },
 ];
 
