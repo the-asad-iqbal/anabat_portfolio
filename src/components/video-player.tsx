@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function VideoPlayer({ src, poster, title, className = "" }: {
   src: string;
@@ -13,11 +13,21 @@ export default function VideoPlayer({ src, poster, title, className = "" }: {
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [error, setError] = useState(false);
+  const [activated, setActivated] = useState(false);
+
+  useEffect(() => {
+    if (!activated) return;
+    video.current?.play().catch(() => setError(true));
+  }, [activated]);
   const progress = duration ? Math.min(time / duration, 1) : 0;
 
   async function toggle() {
     const media = video.current;
     if (!media) return;
+    if (!activated) {
+      setActivated(true);
+      return;
+    }
     if (!media.paused) return media.pause();
     try {
       await media.play();
@@ -31,7 +41,7 @@ export default function VideoPlayer({ src, poster, title, className = "" }: {
     <div className={`relative isolate overflow-hidden rounded-2xl bg-[#172338] ${className}`} role="group" aria-label={title}>
       <video
         ref={video}
-        src={src}
+        src={activated ? src : undefined}
         poster={poster}
         playsInline
         preload="none"

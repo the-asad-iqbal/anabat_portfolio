@@ -1,4 +1,35 @@
 import Link from "next/link";
+import { AnimatedTooltip, type TooltipItem } from "./animated-tooltip";
+
+const featuredClients: TooltipItem[] = [
+  {
+    id: 1,
+    name: "Amra Farooq",
+    designation: "@amrafarooq_",
+    image: "/clients/amra-farooq.jpg",
+    href: "https://www.instagram.com/amrafarooq_/",
+  },
+  {
+    id: 2,
+    name: "Josh Snow",
+    designation: "@joshsnow",
+    image: "/clients/josh-snow.jpg",
+    href: "https://www.instagram.com/joshsnow/",
+  },
+  {
+    id: 3,
+    name: "ZWR.AI",
+    designation: "@zwr.ai",
+    image: "/clients/zwr-ai.jpg",
+    href: "https://www.instagram.com/zwr.ai/",
+  },
+  {
+    id: 4,
+    name: "KCS Network",
+    designation: "Client",
+    image: "/clients/kcs-network.jpg",
+  },
+];
 
 export default function HeroSection() {
   return (
@@ -19,7 +50,7 @@ export default function HeroSection() {
           don&apos;t waste a single second of your footage.
         </p>
 
-        <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/work"
             className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-8 rounded-lg bg-[#0866ff] px-5 sm:px-8 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0057df] active:translate-y-0"
@@ -39,6 +70,13 @@ export default function HeroSection() {
           >
             How I work
           </Link>
+        </div>
+
+        <div className="mt-7 flex items-center justify-center gap-5">
+          <AnimatedTooltip items={featuredClients} />
+          <span className="text-xs font-medium tracking-wide text-[#72757b]">
+            +10 more
+          </span>
         </div>
       </div>
     </section>

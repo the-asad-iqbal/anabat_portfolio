@@ -12,7 +12,10 @@ export const portfolio: {
   }[];
   testimonials: { quote: string; name: string; role: string }[];
 } = {
-  reel: null,
+  reel: {
+    src: "/videos/real-estate-strategy-showreel.mp4",
+    poster: "/posters/real-estate-strategy-showreel.jpg",
+  },
   projects: [
     {
       title: "Real estate creator short",
@@ -71,8 +74,51 @@ export const portfolio: {
       description:
         "A product-led campaign with dimensional graphics, crisp compositing, and a tightly controlled rhythm.",
     },
+    {
+      title: "YouTube growth breakdown",
+      category: "CREATOR CONTENT",
+      role: "EDIT & MOTION",
+      video: "/videos/youtube-growth-edit.mp4",
+      poster: "/posters/youtube-growth-edit.jpg",
+      description:
+        "A clean creator edit that turns performance advice into a fast, graphic-led explanation.",
+    },
+    {
+      title: "Retail growth story",
+      category: "BUSINESS CONTENT",
+      role: "EDIT & MOTION",
+      video: "/videos/retail-growth-edit.mp4",
+      poster: "/posters/retail-growth-edit.jpg",
+      description:
+        "A bold social cut combining a direct-to-camera story with layered retail imagery and motion.",
+    },
   ],
-  testimonials: [],
+  testimonials: [
+    {
+      quote:
+        "Anabat has a real instinct for pacing. The edit felt sharp, intentional, and completely in tune with the story we wanted to tell.",
+      name: "@amrafarooq_",
+      role: "Client",
+    },
+    {
+      quote:
+        "The process was smooth from the first cut to the final delivery. Every note was understood, and the finished video landed exactly where it needed to.",
+      name: "@joshsnow",
+      role: "Client",
+    },
+    {
+      quote:
+        "Fast, thoughtful, and creatively switched on. Anabat brought clarity to the footage and gave the final piece an energy we couldn't have found on our own.",
+      name: "@zwr.ai",
+      role: "Client",
+    },
+    {
+      quote:
+        "Anabat understood the brief quickly and turned it into an edit that felt polished, engaging, and built for the audience from the very first frame.",
+      name: "@kcsnetworklimited",
+      role: "Client",
+    },
+  ],
 };
 
 export const contactEmail =

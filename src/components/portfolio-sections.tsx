@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { portfolio } from "@/lib/portfolio";
 import VideoPlayer from "@/components/video-player";
+import FAQAccordion from "@/components/faq-accordion";
 
 export function ShowreelSection() {
   return (
@@ -128,19 +129,31 @@ export function TestimonialsSection() {
   if (!portfolio.testimonials.length) return null;
   return (
     <section
-      className="mx-auto w-full min-w-0 max-w-7xl scroll-mt-8 px-5 py-14 text-[#252525] sm:px-8 lg:px-12 lg:py-22 [&_h2]:text-[clamp(2rem,5vw,4.5rem)] [&_h2]:leading-[1.06] [&_h2]:font-semibold [&_h2]:tracking-[-0.055em] [&_h2_span]:text-[#0866ff] [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-[-0.035em]"
+      className="mx-auto w-full min-w-0 max-w-7xl scroll-mt-8 px-5 py-14 text-[#252525] sm:px-8 lg:px-12 lg:py-22 [&_h2]:text-[clamp(2rem,5vw,4.5rem)] [&_h2]:leading-[1.06] [&_h2]:font-semibold [&_h2]:tracking-[-0.055em] [&_h2_span]:text-[#0866ff]"
       aria-labelledby="quotes-heading"
     >
-      <p className="mb-6 text-[11px] font-medium tracking-[0.14em] text-[#72757b]">
-        CLIENT NOTES
-      </p>
-      <h2 id="quotes-heading">In their words.</h2>
-      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="flex flex-col items-start justify-between gap-5 md:flex-row md:items-end md:gap-8">
+        <div>
+          <p className="mb-6 text-[11px] font-medium tracking-[0.14em] text-[#72757b]">
+            CLIENT NOTES
+          </p>
+          <h2 id="quotes-heading">
+            Good work. <span>Good words.</span>
+          </h2>
+        </div>
+        <p className="max-w-80 text-[15px] leading-[1.85] text-[#72757b]">
+          A few notes from people I&apos;ve had the pleasure of creating with.
+        </p>
+      </div>
+      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         {portfolio.testimonials.map((item) => (
           <figure
-            className="min-w-0 rounded-[20px] bg-[#f5f7fb] p-6 sm:p-8 [&_blockquote]:text-xl [&_blockquote]:leading-relaxed sm:[&_blockquote]:text-2xl [&_figcaption]:mt-7 [&_figcaption]:text-sm [&_figcaption_span]:mt-1.5 [&_figcaption_span]:block [&_figcaption_span]:text-[#72757b]"
+            className="flex min-h-80 min-w-0 flex-col rounded-[22px] bg-[#f5f7fb] p-6 sm:p-8 [&_blockquote]:text-lg [&_blockquote]:leading-[1.7] [&_blockquote]:tracking-[-0.02em] [&_figcaption]:mt-auto [&_figcaption]:pt-10 [&_figcaption]:text-sm [&_figcaption]:font-semibold [&_figcaption_span]:mt-1.5 [&_figcaption_span]:block [&_figcaption_span]:font-normal [&_figcaption_span]:text-[#72757b]"
             key={item.name}
           >
+            <span className="mb-7 text-4xl leading-none text-[#0866ff]" aria-hidden="true">
+              “
+            </span>
             <blockquote>{item.quote}</blockquote>
             <figcaption>
               {item.name}
@@ -289,7 +302,7 @@ const faqs = [
     "What about music and project files?",
     "Mention any music, stock assets, or editable project files you need before the project begins. Licensing and handover requirements should be agreed in the scope.",
   ],
-];
+] satisfies readonly (readonly [question: string, answer: string])[];
 
 export function FAQSection() {
   return (
@@ -314,20 +327,7 @@ export function FAQSection() {
           Have another question? ↗
         </Link>
       </div>
-      <div>
-        {faqs.map(([question, answer]) => (
-          <details
-            className="border-b border-[#e3e5e8] first:border-t [&_summary]:flex [&_summary]:min-h-14 [&_summary]:cursor-pointer [&_summary]:list-none [&_summary]:justify-between [&_summary]:gap-6 [&_summary]:py-6 [&_summary]:text-[15px] [&_summary]:font-medium [&_summary::-webkit-details-marker]:hidden [&_summary_span]:shrink-0 [&_summary_span]:text-xl [&_summary_span]:text-[#0866ff] [&[open]_summary_span]:rotate-45 [&>p]:pb-6 [&>p]:text-sm [&>p]:leading-[1.85] [&>p]:text-[#72757b]"
-            key={question}
-          >
-            <summary>
-              {question}
-              <span aria-hidden="true">+</span>
-            </summary>
-            <p>{answer}</p>
-          </details>
-        ))}
-      </div>
+      <FAQAccordion items={faqs} />
     </section>
   );
 }
