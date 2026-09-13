@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   title: { default: "Anabat — Video Editor", template: "%s | Anabat" },
   description:
     "Video editing by Anabat. Thoughtful cuts, color, and sound for YouTube, short-form, brands, and podcasts.",
+  openGraph: {
+    type: "website",
+    siteName: "Anabat",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
   icons: {
     icon: "/favicon.svg",
   },
