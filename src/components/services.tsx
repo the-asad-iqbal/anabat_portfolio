@@ -43,17 +43,17 @@ const styles: Record<string, string> = {
 
 const services = [
     {
-        title: "Short-form editing",
+        title: "Made to stop the scroll",
         description:
-            "Make the first seconds count. Reels, Shorts, and TikToks shaped with strong hooks, clean captions, and a pace that keeps people watching.",
+            "Reels, Shorts, and TikToks with sharp hooks, clean captions, and a pace that does not let go.",
         formats: ["Reels & TikToks", "YouTube Shorts", "Content repurposing"],
         label: "Small format. Big impression.",
         kind: "short",
     },
     {
-        title: "YouTube & long-form",
+        title: "Room for the story to land",
         description:
-            "Give your story room to breathe. From talking-head videos to documentaries, I bring structure, thoughtful cuts, and sound that holds it all together.",
+            "Talking-heads, docs, and deep-dives with structure and pacing that keep people in for the long haul.",
         formats: [
             "YouTube videos",
             "Talking-head edits",
@@ -63,17 +63,17 @@ const services = [
         kind: "long",
     },
     {
-        title: "Brand & product videos",
+        title: "Your product, looking its best",
         description:
-            "Put what you do in the best light. Polished edits for product demos, reviews, and ads, with considered color, clear messaging, and purposeful motion.",
+            "Demos, ads, and testimonials with color and motion that make the pitch without shouting it.",
         formats: ["Product demos", "Social ads", "Reviews & testimonials"],
         label: "Every frame, on brand.",
         kind: "brand",
     },
     {
-        title: "Podcast editing",
+        title: "Talk turned into a listen",
         description:
-            "Keep the conversation flowing. Clean audio, seamless camera cuts, and shareable highlights turn your recording into an episode ready to publish.",
+            "Clean audio, tight camera cuts, and clips people actually share.",
         formats: ["Full episodes", "Multicam editing", "Highlight clips"],
         label: "Good conversations. Great cuts.",
         kind: "podcast",
@@ -137,16 +137,15 @@ export default function ServicesSection() {
         >
             <div className={styles.heading}>
                 <div>
-                    <p className={styles.eyebrow}>WHAT I CAN DO FOR YOU</p>
+                    <p className={styles.eyebrow}>SERVICES</p>
                     <h2 id="services-heading">
-                        Your footage.
+                        Whatever the format,
                         <br />
-                        <span>The right edit.</span>
+                        <span>I&apos;ll shape it right.</span>
                     </h2>
                 </div>
                 <p className={styles.intro}>
-                    From a fifteen-second hook to the full story. Editing that fits your
-                    format, and feels like you.
+                    Fifteen-second hook or forty-minute doc. Same care, different toolkit.
                 </p>
             </div>
             <div className={styles.stack}>
@@ -173,7 +172,7 @@ export default function ServicesSection() {
                                 className={styles.link}
                                 aria-label={`Start a project: ${service.title}`}
                             >
-                                Let’s talk about your edit <span aria-hidden="true">↗</span>
+                                Talk about your edit <span aria-hidden="true">↗</span>
                             </a>
                         </div>
                         <EditVisual kind={service.kind} label={service.label} />

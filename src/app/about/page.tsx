@@ -5,7 +5,7 @@ import CTASection from "@/components/cta";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet Anabat and learn about the approach behind the edit.",
+  description: "Meet Anabat, the editor, the process, and why every frame gets thought through.",
 };
 export default function AboutPage() {
   return (
@@ -15,13 +15,13 @@ export default function AboutPage() {
           ABOUT ANABAT
         </p>
         <h1>
-          Thought goes into
+          Every frame&apos;s
           <br />
-          <span>every frame.</span>
+          <span>a decision.</span>
         </h1>
         <p>
-          Editing is a series of small decisions. Together, they change how a
-          story feels.
+          Small choices, made a thousand times over. That&apos;s what turns raw
+          footage into something people actually finish watching.
         </p>
       </div>
       <AboutSection full />

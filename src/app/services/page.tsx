@@ -7,7 +7,7 @@ import CTASection from "@/components/cta";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Short-form, YouTube, brand, product, and podcast editing by Anabat.",
+    "Short-form, YouTube, brand, product, and podcast editing, built around what you are trying to say.",
 };
 export default function ServicesPage() {
   return (
@@ -17,13 +17,13 @@ export default function ServicesPage() {
           VIDEO EDITING SERVICES
         </p>
         <h1>
-          Your story.
+          One editor.
           <br />
-          <span>The right format.</span>
+          <span>Every format.</span>
         </h1>
         <p>
-          From a short social clip to a full episode, an edit shaped around what
-          you want to say.
+          Fifteen-second hook or full-length feature. I shape the edit around
+          what you need it to do.
         </p>
       </div>
       <ServicesSection />

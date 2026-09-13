@@ -10,9 +10,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Anabat — Video Editor", template: "%s | Anabat" },
+  title: { default: "Anabat, Video Editor", template: "%s | Anabat" },
   description:
-    "Video editing by Anabat. Thoughtful cuts, color, and sound for YouTube, short-form, brands, and podcasts.",
+    "Videos that do not just look good. They hold attention. Editing for YouTube, shorts, brands, and podcasts.",
   openGraph: {
     type: "website",
     siteName: "Anabat",

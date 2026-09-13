@@ -64,7 +64,7 @@ export default function Footer() {
           </a>
           <p className="mt-8 max-w-xs text-sm leading-6 text-[#72757b]">
             Independent editing. Intentional storytelling. Thoughtful cuts,
-            color, and sound—from the first frame to the final feeling.
+            color, and sound, from the first frame to the final feeling.
           </p>
         </div>
       </div>

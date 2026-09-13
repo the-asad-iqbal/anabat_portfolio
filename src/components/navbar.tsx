@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import ContactMenu from "@/components/contact-menu";
 import FlippingText from "@/components/flipping-text";
 
 const links = [
@@ -104,40 +105,31 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link
-          href="/contact"
-          className="group hidden min-h-11 items-center gap-5 rounded-lg border border-[#e8e8e9] bg-[#f0f0f1] px-4 text-sm font-semibold transition hover:-translate-y-0.5 hover:bg-[#0866ff] hover:text-[#f0f0f1] active:translate-y-0 lg:inline-flex motion-reduce:transform-none"
-        >
-          Let’s talk
-          <span
-            aria-hidden="true"
-            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none"
-          >
-            ↗
-          </span>
-        </Link>
+        <div className="flex items-center gap-2 sm:gap-3">
+          {!open && <ContactMenu key={pathname} />}
 
-        <button
-          ref={toggleRef}
-          id="menu-toggle"
-          type="button"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen((current) => !current)}
-          className={`group flex size-11 flex-col items-center justify-center gap-1.5 rounded-full border transition-colors duration-300 lg:hidden ${open ? "border-[#252525] bg-[#252525] text-white" : "border-[#e0e1e3] bg-[#fafafa] hover:border-[#c9cacc]"}`}
-        >
-          <span
-            className={`h-px w-4.5 bg-current transition-transform duration-300 ${
-              open ? "translate-y-[3.5px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-px w-4.5 bg-current transition-transform duration-300 ${
-              open ? "translate-y-[-3.5px] -rotate-45" : ""
-            }`}
-          />
-        </button>
+          <button
+            ref={toggleRef}
+            id="menu-toggle"
+            type="button"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((current) => !current)}
+            className={`group flex size-11 flex-col items-center justify-center gap-1.5 rounded-full border transition-colors duration-300 lg:hidden ${open ? "border-[#252525] bg-[#252525] text-white" : "border-[#e0e1e3] bg-[#fafafa] hover:border-[#c9cacc]"}`}
+          >
+            <span
+              className={`h-px w-4.5 bg-current transition-transform duration-300 ${
+                open ? "translate-y-[3.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-4.5 bg-current transition-transform duration-300 ${
+                open ? "translate-y-[-3.5px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       <nav
@@ -145,13 +137,17 @@ export default function Navbar() {
         id="mobile-navigation"
         aria-label="Mobile navigation"
         aria-hidden={!open}
-        className={`fixed inset-x-0 top-20 h-[calc(100dvh-5rem)] z-10 flex flex-col overflow-y-auto overscroll-contain bg-[#f6f6f4] px-5 sm:px-8 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-7 transition duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden ${open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0"}`}
+        className={`fixed inset-x-0 top-20 z-10 flex h-[calc(100dvh-5rem)] flex-col overflow-y-auto overscroll-contain bg-[#f6f6f4] px-5 pt-7 pb-[max(1.75rem,env(safe-area-inset-bottom))] transition-[clip-path,transform,visibility] ease-[cubic-bezier(0.76,0,0.24,1)] motion-reduce:transition-none sm:px-8 lg:hidden ${open ? "visible translate-y-0 [clip-path:inset(0_0_0_0)] duration-500" : "invisible -translate-y-3 [clip-path:inset(0_0_100%_0)] duration-400"}`}
       >
-        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8c91]">
+        <p
+          className={`mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8c91] transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none ${open ? "translate-y-0 opacity-100 delay-150" : "-translate-y-2 opacity-0"}`}
+        >
           Navigation
         </p>
 
-        <div className="border-t border-[#dfe0e1]">
+        <div
+          className={`border-t border-[#dfe0e1] transition-[opacity,transform] duration-250 ease-out motion-reduce:transition-none ${open ? "translate-y-0 opacity-100 delay-100" : "-translate-y-3 opacity-0"}`}
+        >
           {links.map(({ href, label }, index) => (
             <Link
               key={href}
@@ -181,7 +177,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="mt-auto pt-9">
+        <div
+          className={`mt-auto pt-9 transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none ${open ? "translate-y-0 opacity-100 delay-150" : "translate-y-3 opacity-0"}`}
+        >
           <p className="mb-3 max-w-60 text-sm leading-6 text-[#72757b]">
             Have a story waiting to be shaped?
           </p>

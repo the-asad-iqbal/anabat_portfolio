@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Anabat — Video Editor. Good footage. Unforgettable stories.";
+  "Anabat, Video Editor. You shot it. Let's make people watch it.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.06,
             }}
           >
-            Good footage.
+            You shot it.
           </div>
           <div
             style={{
@@ -73,7 +73,7 @@ export default function OpenGraphImage() {
               color: "#0866ff",
             }}
           >
-            Unforgettable stories.
+            Let&apos;s make people watch it.
           </div>
           <div style={{ marginTop: 26, fontSize: 23, color: "#72757b" }}>
             Thoughtful cuts. Considered color. Sound that stays.

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { portfolio } from "@/lib/portfolio";
+import VideoPlayer from "@/components/video-player";
 
 export function ShowreelSection() {
   return (
@@ -22,14 +23,11 @@ export function ShowreelSection() {
         </p>
       </div>
       {portfolio.reel ? (
-        <video
+        <VideoPlayer
           className="aspect-video w-full rounded-2xl bg-[#151b28] sm:rounded-3xl"
-          controls
-          playsInline
-          preload="none"
           poster={portfolio.reel.poster}
           src={portfolio.reel.src}
-          aria-label="Anabat’s editing showreel"
+          title="Anabat’s editing showreel"
         />
       ) : (
         <div className="relative flex min-h-75 flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#172338] px-5 pt-8 pb-18 text-center text-[#eaf1ff] sm:rounded-3xl lg:min-h-98 lg:p-10 [&>p]:text-[clamp(1.6rem,4vw,3rem)] [&>p]:font-medium [&>p]:tracking-[-0.04em] [&>span:first-child]:text-[#a9bbd6] [&>span:last-of-type]:mt-4 [&>span:last-of-type]:text-sm [&>span:last-of-type]:text-[#b7c5da]">
@@ -67,9 +65,7 @@ export function WorkSection({ full = false }: { full?: boolean }) {
             SELECTED WORK
           </p>
           <h2 id="work-heading">
-            Every project.
-            <br />
-            <span>A different story.</span>
+            Every video&apos;s a different problem to solve.
           </h2>
         </div>
         {!full && (
@@ -82,19 +78,18 @@ export function WorkSection({ full = false }: { full?: boolean }) {
         )}
       </div>
       {portfolio.projects.length ? (
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {(full ? portfolio.projects : portfolio.projects.slice(0, 4)).map(
+        <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {(full ? portfolio.projects : portfolio.projects.filter((project) => project.featured)).map(
             (project) => (
               <article
-                className="min-w-0 [&_video]:mb-6 [&_video]:aspect-video [&_video]:w-full [&_video]:rounded-2xl [&_video]:bg-[#172338] [&>p:last-child]:mt-4 [&>p:last-child]:text-sm [&>p:last-child]:leading-[1.85] [&>p:last-child]:text-[#72757b]"
+                className="min-w-0 [&>p:last-child]:mt-4 [&>p:last-child]:text-sm [&>p:last-child]:leading-[1.85] [&>p:last-child]:text-[#72757b]"
                 key={project.title}
               >
-                <video
-                  controls
-                  playsInline
-                  preload="none"
+                <VideoPlayer
+                  className="mb-6 aspect-[9/16] w-full"
                   src={project.video}
-                  aria-label={project.title}
+                  poster={project.poster}
+                  title={project.title}
                 />
                 <p className="mb-6 text-[11px] font-medium tracking-[0.14em] text-[#72757b]">
                   {project.category} · {project.role}
@@ -113,8 +108,8 @@ export function WorkSection({ full = false }: { full?: boolean }) {
           <div>
             <h3>Selected projects, coming soon.</h3>
             <p>
-              I’m putting together a collection of work for this space. In the
-              meantime, you can explore the kinds of edits I offer.
+              Case studies are on the way. Until then, here&apos;s exactly what I
+              can do for your footage.
             </p>
             <Link
               href="/services"
@@ -160,20 +155,20 @@ export function TestimonialsSection() {
 
 const steps = [
   [
-    "Start with the brief",
-    "Tell me about the audience, the footage, and what the video needs to do. We agree on the scope before editing begins.",
+    "The brief",
+    "You tell me who it's for, what you've got, and what it needs to do. We lock scope before I touch a single clip.",
   ],
   [
-    "Build the first cut",
-    "I work through the footage, shape the structure, and establish the pace. This is where the story takes form.",
+    "The first cut",
+    "I go through the footage, find the shape, and set the pace. This is where the story actually becomes a story.",
   ],
   [
-    "Refine the details",
-    "We review the cut together. Clear, timestamped feedback helps focus revisions on what matters.",
+    "The polish",
+    "We watch it together. You give timestamped notes, and I sharpen exactly what needs sharpening.",
   ],
   [
-    "Prepare the delivery",
-    "The final edit is checked and exported in the formats agreed for your platforms.",
+    "The delivery",
+    "Final check, right formats, ready for wherever it's going.",
   ],
 ];
 
@@ -190,14 +185,11 @@ export function ProcessSection() {
             HOW WE’LL WORK
           </p>
           <h2 id="process-heading">
-            Clear steps.
-            <br />
-            <span>Room for the story.</span>
+            Nothing mysterious about it.
           </h2>
         </div>
         <p>
-          From the first conversation to the final export, here’s what the
-          process looks like.
+          Here&apos;s how we get from raw footage to a finished edit.
         </p>
       </div>
       <ol className="mt-10 grid list-none grid-cols-1 gap-7 min-[440px]:grid-cols-2 lg:mt-14 lg:grid-cols-4 [&>li]:min-w-0 [&>li]:border-t [&>li]:border-[#cddbf2] [&>li]:pt-5 [&_p]:mt-4 [&_p]:text-sm [&_p]:leading-[1.85] [&_p]:text-[#72757b]">
@@ -237,18 +229,18 @@ export function AboutSection({ full = false }: { full?: boolean }) {
           A LITTLE ABOUT ME
         </p>
         <h2 id="about-heading">
-          Hi, I’m Anabat.
+          Hi, I&apos;m Anabat.
           <br />
           <span>I care about the cut.</span>
         </h2>
         <p className="mt-6 text-[15px] leading-[1.9] text-[#72757b]">
-          I edit with a simple aim: help the story come through. That means
-          knowing when to move quickly, when to leave a moment alone, and what
-          to leave out.
+          I care more about the cut than the credit. That means knowing when to
+          hold a shot, when to kill it, and when silence works harder than a
+          sound bite.
         </p>
         <p className="mt-6 text-[15px] leading-[1.9] text-[#72757b]">
-          My work covers short-form content, YouTube videos, brand films, and
-          podcasts, with attention to structure, color, and sound.
+          Short-form, YouTube, brand films, podcasts. Structure, color, and
+          sound, always in service of the story.
         </p>
         {full ? (
           <p className="mt-6 text-[15px] leading-[1.9] text-[#72757b]">
@@ -291,7 +283,7 @@ const faqs = [
   ],
   [
     "Can I get different versions of the same video?",
-    "Yes—include the platforms, aspect ratios, captions, and cutdowns you need in your brief so they can be scoped together.",
+    "Yep, tell me the platforms, ratios, and cutdowns you need and we'll scope it together.",
   ],
   [
     "What about music and project files?",
